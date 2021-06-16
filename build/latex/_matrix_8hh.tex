@@ -1,0 +1,79 @@
+\hypertarget{_matrix_8hh}{}\doxysection{/home/adam/programowanie/zad5\+\_\+2-\/\+Adam\+Domachowski/inc/\+Matrix.hh File Reference}
+\label{_matrix_8hh}\index{/home/adam/programowanie/zad5\_2-\/AdamDomachowski/inc/Matrix.hh@{/home/adam/programowanie/zad5\_2-\/AdamDomachowski/inc/Matrix.hh}}
+
+
+klasa matrix odpowiada za wszystkie dzialania na macierzach  
+
+
+{\ttfamily \#include \char`\"{}Vector.\+hh\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}size.\+hh\char`\"{}}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_matrix}{Matrix$<$ S\+I\+Z\+E $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{_matrix_8hh_ae272d3a3cfa5b816168f98d6de6ce5b4}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{class_matrix}{Matrix}}$<$ S\+I\+ZE $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em przeciarzany opearator wejscia \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{_matrix_8hh_a2c77a791bbfda3356a0c4f335f8b6e6e}{operator$<$$<$}} (std\+::ostream \&out, \mbox{\hyperlink{class_matrix}{Matrix}}$<$ S\+I\+ZE $>$ const \&mat)
+\begin{DoxyCompactList}\small\item\em przeciazony operator wyjscia \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+klasa matrix odpowiada za wszystkie dzialania na macierzach 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_matrix_8hh_a2c77a791bbfda3356a0c4f335f8b6e6e}\label{_matrix_8hh_a2c77a791bbfda3356a0c4f335f8b6e6e}} 
+\index{Matrix.hh@{Matrix.hh}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Matrix.hh@{Matrix.hh}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ S\+I\+ZE $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+
+
+przeciazony operator wyjscia 
+
+Funkcja realizujaca przeciazenia operatora $<$$<$. Funkcja sluzy do wypisywania na wskazany strumien wyjsciowy, wartosci wspolrzednych macierzy. ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em out} & -\/ Strumien wejsciowy. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em mat} & -\/ Macierz. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wypisane wspolrzende wskazanego prostopadloscianu, w odpowiedniej formie na wskazane wyjscie. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_matrix_8hh_ae272d3a3cfa5b816168f98d6de6ce5b4}\label{_matrix_8hh_ae272d3a3cfa5b816168f98d6de6ce5b4}} 
+\index{Matrix.hh@{Matrix.hh}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Matrix.hh@{Matrix.hh}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}$<$ S\+I\+ZE $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+
+
+przeciarzany opearator wejscia 
+
+Funkcja realizujaca przeciazenia operatora $>$$>$. Funkcja sluzy do wczytywania ze wskazanego strumiena wejsciowego, wartosci wspolrzednych macierzy. ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in} & -\/ Strumien wejsciowy. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em mat} & -\/ Macierz. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wczytany obiekt -\/ macierz. 
+\end{DoxyReturn}
