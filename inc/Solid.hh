@@ -25,7 +25,6 @@ Vector3D &operator[](int index);
 
 Vector3D operator[](int index) const;
 
-
 void wstaw_srodek(Vector3D srodek_bryly); /*! \brief ustawia wierzcholki srodka bryly*/
 
 void ustaw_nazwe_pliku(std::string nazwa_pliku_bryly); /*! \brief umozwliwia podania nazwy pliku do ktorego zapisywane beda wierzcholki*/

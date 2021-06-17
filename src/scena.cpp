@@ -199,6 +199,7 @@ bool Scena::menu()
 
         case 6:{
         std::cout << "koniec dzialania programu ...";
+        free(podloze);
         }    
         return false;
 

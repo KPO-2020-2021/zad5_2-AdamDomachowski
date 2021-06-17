@@ -15,7 +15,7 @@
     Drone::Drone(int nr_drona,PzG::LaczeDoGNUPlota &Lacze, Vector3D wspolrzende):Lacze(Lacze)
     {
         this->nr_drona = nr_drona;
-        body_org.ustaw_nazwe_pliku("../datas/body"+std::to_string(nr_drona)+".dat");
+        body_org.ustaw_nazwe_pliku("../datas/body"+std::to_string(nr_drona)+ ".dat");
         
 
         for(int i=0; i<4; i++)

@@ -12,7 +12,7 @@
 #include "lacze_do_gnuplota.hh"
 #include "Drone.hh"
 #include "bottom.hh"
-#define ilosc_dronow_na_scenie 2
+#define ilosc_dronow_na_scenie 3
 /*! \brief klasa Scena odpowiada za umieszczanie obiektów na scenie oraz za obslge uzytkownika */
 
 class Scena
@@ -25,7 +25,6 @@ std::list<std::shared_ptr<Drone>> Lista_Dronow; /*! \brief lista zawierajaca wsk
 int numer_elementu, numer_drona;
 public:
 Scena(); /*! \brief przygotowuje scene*/
-//~Scena();
 void rysuj(); /*! \brief rysuje sytuacje*/
 void dodaj_drona(); /*! \brief rysuje sytuacje*/
 bool menu(); /*! \brief wyswietla menu i odpowiada za wybor drona*/
