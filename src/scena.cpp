@@ -21,7 +21,7 @@ Vector3D losowy_srodek;
 for (int i = 0; i < 4; i++){
     losowy_srodek[0] = rand() % 400 - 200;
     losowy_srodek[1] = rand() % 400 - 200;
-    losowy_srodek[0] = 50;
+    losowy_srodek[2] = 50;
 }
 
 
@@ -43,18 +43,26 @@ for (int i = 0; i < 4; i++){
 
 
 
-Lacze.DodajNazwePliku(podloze->czytaj_nazwe().c_str());
-podloze->zapisz();
+    Lacze.DodajNazwePliku(podloze->czytaj_nazwe().c_str());
+    podloze->zapisz();
+
+    for(int i=0;i<ilosc_dronow_na_scenie; i++){
+    dodaj_drona();
+    }
+
+}
 
 
-for(int i=0;i<ilosc_dronow_na_scenie; i++)
-{
-double pozycja[3]={(double)(rand()%440-220),(double)(rand()%440-220),25};
-tab[i]=new Drone(i,Lacze,Vector3D(pozycja));
-tab[i]->zapisz();
+
+ void Scena::dodaj_drona(){
+    double pozycja[3]={(double)(rand()%440-220),(double)(rand()%440-220),25};
+    Lista_Dronow.push_front(std::make_shared<Drone>(numer_drona, Lacze, Vector3D(pozycja)));
+    (*Lista_Dronow.begin())->zapisz();
+    numer_drona++;
+    Lacze.Rysuj();
 }
-Lacze.Rysuj();
-}
+
+
 
 
 
@@ -69,31 +77,37 @@ void Scena::rysuj()
 /*! \brief wyswietla menu oraz odpowiada za wybor konkretnego drona */
 bool Scena::menu()
 {
-    std::cout<<"\nWybierz  |  1.pilotaz  |   2. dodaj element  |  3. usun element  |  4. END  |  Twoj wybor: ";
+    std::cout<<"\nWybierz  |  1.pilotaz  |   2. dodaj przeszkode  |  3. usun przeszkode  |   4. dodaj drona   |    5. usun drona  |  6. END   |  Twoj wybor: ";
     int wybor;
     std::cin >> wybor;
     switch (wybor)
     {
+
+
+
         case 1:{
-        std::cout<< "\nPodaj nr drona (do wyboru 1, 2): ";
+        std::cout<< "\nPodaj nr drona: ";
+        for(int i=0; i<(int)Lista_Dronow.size(); i++)
+        {
+        std::cout<<i <<" ";
+        }
+        std::cout<<":";
         int numer_drona = 0;
         std::cin>>numer_drona;
-        numer_drona = numer_drona -1;
-        if (numer_drona <= ilosc_dronow_na_scenie){
-            tab[numer_drona] -> pilot();
+        if(numer_drona > (int)Lista_Dronow.size() -1 || numer_drona < 0) { std::cout << "nie ma takiego drona" << std::endl; return false; }
+        std::list<std::shared_ptr<Drone>>::const_iterator a;
+        a=Lista_Dronow.begin();
+        for(int i=0; i<numer_drona; i++){
+            a++;
         }
-        else
-        {
-            std::cout << "wybrano drona ktorego nie ma";
-            throw "wybrano drona ktorego nie ma";
-            exit(0);
-        }
+        (*a)->pilot();
         }//case
         break;
 
 
+
         case 2:{
-        std::cout<< "\nWybierz |  1.gora ze szczytem  |  2.gora z grania  |  3.plaskowyz  |  Twoj wybor: ";
+        std::cout<< "\nWybierz |  1.gora ze szczytem  |  2.gora z grania  |  3.plaskowyz  Twoj wybor: ";
 
         int wybor;
         std::cin >> wybor;
@@ -126,10 +140,12 @@ bool Scena::menu()
         (*lista_przeszkod.begin())->zapisz_do_pliku();
          Lacze.DodajNazwePliku((*lista_przeszkod.begin())->jaka_nazwa().c_str());
 
+
         }//case 2
         break;
 
         
+
         case 3:{
         int i = 0;
 
@@ -153,7 +169,35 @@ bool Scena::menu()
         break;
 
 
+
         case 4:{
+        dodaj_drona();
+        }    
+        break;
+
+
+        case 5:{
+        int i = 0;
+        for (std::list<std::shared_ptr<Drone>>::const_iterator a = Lista_Dronow.begin(); a != Lista_Dronow.end(); a++){
+        std::cout << i << ": " << (*a)->numer_drona() << std::endl;
+        i++;
+        }
+        std::cout << "podaj numer" << std::endl;
+        int nr;
+        std::cin >> nr;
+        std::list<std::shared_ptr<Drone>>::const_iterator a = Lista_Dronow.begin();
+        for (int j = 0; j < nr; j++){
+        a++;
+        }   
+        (*a)->usun();
+        Lista_Dronow.erase(a);
+        }
+        break;  
+
+
+
+
+        case 6:{
         std::cout << "koniec dzialania programu ...";
         }    
         return false;

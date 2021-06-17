@@ -21,9 +21,12 @@ PzG::LaczeDoGNUPlota Lacze;
 Drone *tab[ilosc_dronow_na_scenie]; /*! \brief tablica dronów*/
 Bottom *podloze; /*! \brief wskaźnik na przygotowaną podloge*/
 std::list<std::shared_ptr<Solid>> lista_przeszkod; /*! \brief lista zawierajaca wskazniki na przeszkody*/
-int numer_elementu;
+std::list<std::shared_ptr<Drone>> Lista_Dronow; /*! \brief lista zawierajaca wskazniki na drony*/
+int numer_elementu, numer_drona;
 public:
 Scena(); /*! \brief przygotowuje scene*/
+//~Scena();
 void rysuj(); /*! \brief rysuje sytuacje*/
+void dodaj_drona(); /*! \brief rysuje sytuacje*/
 bool menu(); /*! \brief wyswietla menu i odpowiada za wybor drona*/
 };

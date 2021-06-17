@@ -46,6 +46,15 @@
         this->droga = this->droga + wspolrzende;
     }
 
+
+
+  void Drone::usun()
+  {
+    Lacze.UsunNazwePliku(body_org.jaka_nazwa().c_str());
+    for (int i = 0; i < 4; i++)
+        Lacze.UsunNazwePliku(wings_org[i].jaka_nazwa().c_str());
+  }
+
 /*!
     \brief funkcja obrotu drona                                                                                                                      
     \param [in] kat - kat do obrotu.      
@@ -72,17 +81,24 @@
     {
         kat=0;
     }
-    Matrix3x3 mtx;
-    mtx = mtx * obrot_Z(kat);
-    for(int i=0; i<4; i++)
-        {
-        wings_copy[i].obrot(mtx); 
+    Matrix3x3 mtx,xtm;
+    for (int i=0; i<4; i++){
+        if((i+1)%2==0){
+            mtx=mtx*obrot_Z(kat);
+            wings_copy[i].obrot(mtx);
         }
-    for(int i=0; i<4; i++)
-        {
-        wings_copy[i].przesun_o_wektor(body_copy[i*2]);
+        else{
+            xtm = xtm * obrot_Z(-kat);
+            wings_copy[i].obrot(xtm);
         }
     }
+    for (int i = 0; i < 4; i++)
+    {
+        wings_copy[i].przesun_o_wektor(body_copy[i * 2]);
+    }
+}
+
+
 
 /*!
     \brief funkcja odpowiedzialna za przesuwanie drona (lot) po plaszczyznie                                                                                                          

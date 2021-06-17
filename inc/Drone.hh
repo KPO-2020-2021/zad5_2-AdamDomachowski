@@ -43,4 +43,10 @@ public:
     
     /*! \brief funkcja odpowiadająca za pilotaz dronem*/
     void pilot();
+
+    /*! \brief zweaca numer drona*/
+    int numer_drona(){return nr_drona;}
+
+    /*! \brief usuwa dane o dronie*/
+    void usun();
 };
