@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jaka_5fnazwa_258',['jaka_nazwa',['../class_solid.html#a578526251e06e3d64290f985e2f671aa',1,'Solid']]]
+  ['jaka_5fnazwa_262',['jaka_nazwa',['../class_solid.html#a578526251e06e3d64290f985e2f671aa',1,'Solid']]]
 ];
