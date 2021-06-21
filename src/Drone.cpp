@@ -226,7 +226,11 @@
             {
                 for (int i=0;i>kat; i--)
                 {
-                body_copy = body_org;   
+                body_copy = body_org;
+                for(int j=0; j<4; j++)
+                {
+                wings_copy[j] = wings_org[j];
+                }   
                 obrot(-1);
                 obrot_wiernikow();
                 zapisz();
